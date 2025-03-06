@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primary Member Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #4F46E5;
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-2xl">
+        <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <h1 class="text-2xl font-semibold text-blue-600 mb-6">Details of Primary Member</h1>
+            
+            <form id="memberForm" class="space-y-4">
+                <!-- Name Fields -->
+                <div class="grid grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                        <input type="text" class="input-field w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Middle Name</label>
+                        <input type="text" class="input-field w-full px-3 py-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                        <input type="text" class="input-field w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" class="input-field w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Mobile</label>
+                        <input type="tel" class="input-field w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                    </div>
+                </div>
+
+                <!-- Gender & DOB -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+                        <select class="input-field w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
+                        <input type="date" class="input-field w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                    </div>
+                </div>
+
+                <!-- Address -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Residential Address</label>
+                    <textarea class="input-field w-full px-3 py-2 border border-gray-300 rounded-md" rows="2" required></textarea>
+                </div>
+
+                <!-- Landline -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Area Code</label>
+                        <input type="text" class="input-field w-full px-3 py-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Landline Number</label>
+                        <input type="text" class="input-field w-full px-3 py-2 border border-gray-300 rounded-md">
+                    </div>
+                </div>
+
+                <!-- ID Details -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">ID Proof Type</label>
+                        <select class="input-field w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                            <option value="">Select ID Type</option>
+                            <option value="passport">Passport</option>
+                            <option value="driving">Driving License</option>
+                            <option value="national">National ID</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">ID Number</label>
+                        <input type="text" class="input-field w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                    </div>
+                </div>
+
+                <!-- Joint Member Option -->
+                <div class="mt-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Wish to add your spouse as a Joint Member?</label>
+                    <div class="flex space-x-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="jointMember" value="yes" class="h-4 w-4 text-blue-600">
+                            <span class="ml-2">Yes</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="jointMember" value="no" class="h-4 w-4 text-blue-600">
+                            <span class="ml-2">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Add Joint Member Button -->
+                <button type="button" id="addJointMember" class="w-full mt-6 px-6 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors flex items-center justify-center space-x-2" disabled>
+                    <span>Add Joint Member</span>
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Enable/disable Add Joint Member button based on radio selection
+        document.querySelectorAll('input[name="jointMember"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                const addJointMemberBtn = document.getElementById('addJointMember');
+                addJointMemberBtn.disabled = e.target.value === 'no';
+            });
+        });
+
+        // Form validation and submission
+        document.getElementById('memberForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add your form submission logic here
+        });
+
+        // Add Joint Member button click handler
+        document.getElementById('addJointMember').addEventListener('click', () => {
+            // Add your joint member form logic here
+            alert('Proceeding to Joint Member registration...');
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
